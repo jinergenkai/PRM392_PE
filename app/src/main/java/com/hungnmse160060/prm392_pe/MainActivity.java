@@ -64,10 +64,12 @@ public class MainActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         btnNewBoMon = findViewById(R.id.btnNewBomon);
 
-//        btnMap = findViewById(R.id.btnMap);
-//        btnMap.setOnClickListener(view -> {
-//            startActivity(new Intent(MainActivity.this, GoogleMapActivity.class));
-//        });
+        btnMap = findViewById(R.id.btnMap);
+        btnMap.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, GoogleMapActivity.class);
+            intent.putExtra("Address", etAddress.getText().toString());
+            startActivity(intent);
+        });
 
         btnNewBoMon.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, MainActivity2.class));
