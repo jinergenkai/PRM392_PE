@@ -11,7 +11,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface BoMonService {
-    final String URLbo = "BoMon";
+    final String URLbo = "Nganh";
     @GET(URLbo)
     Call<BoMon[]> getAll();
     @GET(URLbo + "/{id}")

@@ -5,6 +5,7 @@ public class SinhVien {
     private String name;
     private String date;
     private String gender;
+    private String address;
     private Long idBomon;
 
     public Long getId() {
@@ -47,14 +48,23 @@ public class SinhVien {
         this.idBomon = idBomon;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public SinhVien() {
     }
 
-    public SinhVien(Long id, String name, String date, String gender, Long idBomon) {
+    public SinhVien(Long id, String name, String date, String gender, String address, Long idBomon) {
         this.id = id;
         this.name = name;
         this.date = date;
         this.gender = gender;
+        this.address = address;
         this.idBomon = idBomon;
     }
 }

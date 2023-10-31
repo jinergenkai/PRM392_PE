@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etName;
     private EditText etDate;
     private EditText etGender;
+    private EditText etAddress;
     private Button btnAdd;
     private Button btnUpdate;
     private Button btnDelete;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         etName = findViewById(R.id.etName);
         etDate = findViewById(R.id.etDate);
         etGender = findViewById(R.id.etGender);
+        etAddress = findViewById(R.id.etAddress);
         btnAdd = findViewById(R.id.btnAdd);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             etName.setText(items.get(i).getName());
             etDate.setText(items.get(i).getDate());
             etGender.setText(items.get(i).getGender());
+            etAddress.setText(items.get(i).getAddress());
             //spinner.setSelection(2);
             for (int j = 0; j < aItems.size(); ++j) {
                 //System.out.println(aItems.get(j).getId());
@@ -101,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(view -> {
             if (!validateForAdd()) return;
             Long aId = aItems.get(curAPos).getId();
-            SinhVien b = new SinhVien(null, etName.getText().toString(), etDate.getText().toString(), etGender.getText().toString(), aId);
+            SinhVien b = new SinhVien(null, etName.getText().toString(), etDate.getText().toString(), etGender.getText().toString(), etAddress.getText().toString(), aId);
             SinhVienService bService = SinhVienRepository.getSinhVienService();
             Call<SinhVien> call = bService.create(b);
             call.enqueue(new Callback<SinhVien>() {
@@ -124,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             b.setName(etName.getText().toString());
             b.setDate(etDate.getText().toString());
             b.setGender(etGender.getText().toString());
+            b.setAddress(etAddress.getText().toString());
             b.setIdBomon(aId);
             SinhVienService bService = SinhVienRepository.getSinhVienService();
             Call<SinhVien> call = bService.update(b.getId(), b);
@@ -176,6 +180,10 @@ public class MainActivity extends AppCompatActivity {
             etDate.setError("Date can not be empty");
             return false;
         }
+        if (etAddress.getText().toString().trim().length() == 0) {
+            etAddress.setError("Address can not be empty");
+            return false;
+        }
         try {
             new SimpleDateFormat("dd/MM/yyyy").parse(etDate.getText().toString().trim());
         }catch (Exception e) {
@@ -198,6 +206,10 @@ public class MainActivity extends AppCompatActivity {
             etDate.setError("Date can not be empty");
             return false;
         }
+        if (etAddress.getText().toString().trim().length() == 0) {
+            etAddress.setError("Address can not be empty");
+            return false;
+        }
         try {
             new SimpleDateFormat("dd/MM/yyyy").parse(etDate.getText().toString().trim());
         }catch (Exception e) {
@@ -213,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
         etName.setText("");
         etDate.setText("");
         etGender.setText("");
+        etAddress.setText("");
         spinner.setSelection(0);
     }
 

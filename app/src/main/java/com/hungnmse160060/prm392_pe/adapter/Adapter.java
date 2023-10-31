@@ -49,6 +49,7 @@ public class Adapter extends BaseAdapter {
         TextView txtItemName;
         TextView txtGender;
         TextView txtDate;
+        TextView txtAddress;
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
@@ -61,6 +62,7 @@ public class Adapter extends BaseAdapter {
             holder.txtItemName = view.findViewById(R.id.txtItemName);
             holder.txtDate = view.findViewById(R.id.txtItemDate);
             holder.txtGender = view.findViewById(R.id.txtItemGender);
+            holder.txtAddress = view.findViewById(R.id.txtItemAddress);
             view.setTag(holder);
         }
         else {
@@ -70,6 +72,7 @@ public class Adapter extends BaseAdapter {
         holder.txtItemName.setText("Name: " + item.getName());
         holder.txtGender.setText("Gender: " + item.getGender());
         holder.txtDate.setText("Date: " + item.getDate());
+        holder.txtAddress.setText("Address: " + item.getAddress());
         BoMonService aService = BoMonRepository.getBoMonService();
         Call<BoMon> call = aService.getById(item.getIdBomon());
         call.enqueue(new Callback<BoMon>() {
