@@ -71,6 +71,6 @@ public class GoogleMapActivity extends FragmentActivity implements OnMapReadyCal
         LatLng latLng = new LatLng(lat, lng);
         googleMap.addMarker(new MarkerOptions().position(latLng).title(isFound ? address : "Location not found!!"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(16f));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(15f));
     }
 }

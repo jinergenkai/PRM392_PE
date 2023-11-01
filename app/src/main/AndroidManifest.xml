@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PRM392_PE"
         tools:targetApi="31">
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -28,7 +27,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="IzaSyBBLy0DyD78mIUzo7-pUvRhXWxTzq-NDfI" />
+            android:value="AIzaSyBBLy0DyD78mIUzo7-pUvRhXWxTzq-NDfI" />
 
         <activity
             android:name=".GoogleMapActivity"
@@ -38,7 +37,19 @@
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
+            android:name=".SignupAcitivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="true">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
