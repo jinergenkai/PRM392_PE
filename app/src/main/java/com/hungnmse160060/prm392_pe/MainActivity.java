@@ -26,8 +26,8 @@ import com.hungnmse160060.prm392_pe.repository.SinhVienRepository;
 import com.hungnmse160060.prm392_pe.model.Nganh;
 import com.hungnmse160060.prm392_pe.model.SinhVien;
 import com.hungnmse160060.prm392_pe.repository.NganhRepository;
-import com.hungnmse160060.prm392_pe.service.NganhService;
-import com.hungnmse160060.prm392_pe.service.SinhVienService;
+import com.hungnmse160060.prm392_pe.services.NganhService;
+import com.hungnmse160060.prm392_pe.services.SinhVienService;
 
 public class MainActivity extends AppCompatActivity {
 

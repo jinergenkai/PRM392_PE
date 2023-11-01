@@ -11,7 +11,7 @@ import com.hungnmse160060.prm392_pe.R;
 import com.hungnmse160060.prm392_pe.model.Nganh;
 import com.hungnmse160060.prm392_pe.model.SinhVien;
 import com.hungnmse160060.prm392_pe.repository.NganhRepository;
-import com.hungnmse160060.prm392_pe.service.NganhService;
+import com.hungnmse160060.prm392_pe.services.NganhService;
 
 import java.util.List;
 
