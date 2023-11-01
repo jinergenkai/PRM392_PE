@@ -1,6 +1,6 @@
 package com.hungnmse160060.prm392_pe.model;
 
-public class BoMon {
+public class Nganh {
     private String nameBM;
     private Long id;
 
@@ -20,11 +20,11 @@ public class BoMon {
         this.id = id;
     }
 
-    public BoMon(String nameBM, Long id) {
+    public Nganh(String nameBM, Long id) {
         this.nameBM = nameBM;
         this.id = id;
     }
 
-    public BoMon() {
+    public Nganh() {
     }
 }

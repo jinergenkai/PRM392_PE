@@ -15,14 +15,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name BoMon: "
+            android:text="Name Nganh: "
             />
         <EditText
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:hint="Name"
             android:layout_weight="1"
-            android:id="@+id/etNameBoMon"
+            android:id="@+id/etNameNganh"
             />
 
     </LinearLayout>
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ADD"
-        android:id="@+id/btnAddBoMon"
+        android:id="@+id/btnAddNganh"
         />
 
 </LinearLayout>

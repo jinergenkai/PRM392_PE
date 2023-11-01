@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Bo Mon: "/>
+                android:text="Nganh: "/>
             <Spinner
                 android:layout_width="0dp"
                 android:layout_height="48dp"

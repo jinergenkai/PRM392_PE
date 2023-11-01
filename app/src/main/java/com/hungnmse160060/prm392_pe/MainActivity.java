@@ -23,10 +23,10 @@ import retrofit2.Response;
 import com.hungnmse160060.prm392_pe.R;
 import com.hungnmse160060.prm392_pe.adapter.Adapter;
 import com.hungnmse160060.prm392_pe.repository.SinhVienRepository;
-import com.hungnmse160060.prm392_pe.model.BoMon;
+import com.hungnmse160060.prm392_pe.model.Nganh;
 import com.hungnmse160060.prm392_pe.model.SinhVien;
-import com.hungnmse160060.prm392_pe.repository.BoMonRepository;
-import com.hungnmse160060.prm392_pe.service.BoMonService;
+import com.hungnmse160060.prm392_pe.repository.NganhRepository;
+import com.hungnmse160060.prm392_pe.service.NganhService;
 import com.hungnmse160060.prm392_pe.service.SinhVienService;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Adapter adapter;
     private Spinner spinner;
     private List<SinhVien> items;
-    private List<BoMon> aItems;
+    private List<Nganh> aItems;
     private EditText etName;
     private EditText etDate;
     private EditText etGender;
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAdd;
     private Button btnUpdate;
     private Button btnDelete;
-    private Button btnNewBoMon;
+    private Button btnNewNganh;
 
     private Button btnMap;
     private int curPos;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         btnAdd = findViewById(R.id.btnAdd);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
-        btnNewBoMon = findViewById(R.id.btnNewBomon);
+        btnNewNganh = findViewById(R.id.btnNewBomon);
 
         btnMap = findViewById(R.id.btnMap);
         btnMap.setOnClickListener(view -> {
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        btnNewBoMon.setOnClickListener(view -> {
+        btnNewNganh.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, MainActivity2.class));
         });
         loadData();
@@ -253,13 +253,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        BoMonService aService = BoMonRepository.getBoMonService();
-        Call<BoMon[]> call1 = aService.getAll();
-        call1.enqueue(new Callback<BoMon[]>() {
+        NganhService aService = NganhRepository.getNganhService();
+        Call<Nganh[]> call1 = aService.getAll();
+        call1.enqueue(new Callback<Nganh[]>() {
             @Override
-            public void onResponse(Call<BoMon[]> call, Response<BoMon[]> response) {
+            public void onResponse(Call<Nganh[]> call, Response<Nganh[]> response) {
                 System.out.println(response.code());
-                BoMon[] data = response.body();
+                Nganh[] data = response.body();
                 aItems = new ArrayList<>();
                 List<String> cc = new ArrayList<>();
                 for (int i = 0; i < data.length; ++i) {
@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<BoMon[]> call, Throwable t) {
+            public void onFailure(Call<Nganh[]> call, Throwable t) {
 
             }
         });

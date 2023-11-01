@@ -8,39 +8,39 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.hungnmse160060.prm392_pe.R;
-import com.hungnmse160060.prm392_pe.model.BoMon;
-import com.hungnmse160060.prm392_pe.repository.BoMonRepository;
-import com.hungnmse160060.prm392_pe.service.BoMonService;
+import com.hungnmse160060.prm392_pe.model.Nganh;
+import com.hungnmse160060.prm392_pe.repository.NganhRepository;
+import com.hungnmse160060.prm392_pe.service.NganhService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity2 extends AppCompatActivity {
-    EditText txtNameBoMon;
-    Button btnAddBoMon;
+    EditText txtNameNganh;
+    Button btnAddNganh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        txtNameBoMon = findViewById(R.id.etNameBoMon);
-        btnAddBoMon = findViewById(R.id.btnAddBoMon);
-        btnAddBoMon.setOnClickListener(view -> {
-            if (txtNameBoMon.getText().toString().trim().length() == 0) {
-                txtNameBoMon.setError("Name bo mon should not be empty");
+        txtNameNganh = findViewById(R.id.etNameNganh);
+        btnAddNganh = findViewById(R.id.btnAddNganh);
+        btnAddNganh.setOnClickListener(view -> {
+            if (txtNameNganh.getText().toString().trim().length() == 0) {
+                txtNameNganh.setError("Name bo mon should not be empty");
             }
             else {
-                BoMonService boMonService = BoMonRepository.getBoMonService();
-                BoMon boMon = new BoMon(txtNameBoMon.getText().toString(), null);
-                Call<BoMon> call = boMonService.create(boMon);
-                call.enqueue(new Callback<BoMon>() {
+                NganhService nganhService = NganhRepository.getNganhService();
+                Nganh nganh = new Nganh(txtNameNganh.getText().toString(), null);
+                Call<Nganh> call = nganhService.create(nganh);
+                call.enqueue(new Callback<Nganh>() {
                     @Override
-                    public void onResponse(Call<BoMon> call, Response<BoMon> response) {
+                    public void onResponse(Call<Nganh> call, Response<Nganh> response) {
                         startActivity(new Intent(MainActivity2.this, MainActivity.class));
                     }
 
                     @Override
-                    public void onFailure(Call<BoMon> call, Throwable t) {
+                    public void onFailure(Call<Nganh> call, Throwable t) {
 
                     }
                 });

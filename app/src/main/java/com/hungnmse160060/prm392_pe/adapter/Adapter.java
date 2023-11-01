@@ -8,10 +8,10 @@ import android.widget.TextView;
 
 import com.hungnmse160060.prm392_pe.MainActivity;
 import com.hungnmse160060.prm392_pe.R;
-import com.hungnmse160060.prm392_pe.model.BoMon;
+import com.hungnmse160060.prm392_pe.model.Nganh;
 import com.hungnmse160060.prm392_pe.model.SinhVien;
-import com.hungnmse160060.prm392_pe.repository.BoMonRepository;
-import com.hungnmse160060.prm392_pe.service.BoMonService;
+import com.hungnmse160060.prm392_pe.repository.NganhRepository;
+import com.hungnmse160060.prm392_pe.service.NganhService;
 
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class Adapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView txtItemBoMon;
+        TextView txtItemNganh;
         TextView txtItemName;
         TextView txtGender;
         TextView txtDate;
@@ -58,7 +58,7 @@ public class Adapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
-            holder.txtItemBoMon = view.findViewById(R.id.txtItemBoMon);
+            holder.txtItemNganh = view.findViewById(R.id.txtItemNganh);
             holder.txtItemName = view.findViewById(R.id.txtItemName);
             holder.txtDate = view.findViewById(R.id.txtItemDate);
             holder.txtGender = view.findViewById(R.id.txtItemGender);
@@ -73,18 +73,18 @@ public class Adapter extends BaseAdapter {
         holder.txtGender.setText("Gender: " + item.getGender());
         holder.txtDate.setText("Date: " + item.getDate());
         holder.txtAddress.setText("Address: " + item.getAddress());
-        BoMonService aService = BoMonRepository.getBoMonService();
-        Call<BoMon> call = aService.getById(item.getIdBomon());
-        call.enqueue(new Callback<BoMon>() {
+        NganhService aService = NganhRepository.getNganhService();
+        Call<Nganh> call = aService.getById(item.getIdBomon());
+        call.enqueue(new Callback<Nganh>() {
             @Override
-            public void onResponse(Call<BoMon> call, Response<BoMon> response) {
+            public void onResponse(Call<Nganh> call, Response<Nganh> response) {
                 System.out.println(response.code() + response.message());
-                BoMon a = response.body();
-                holder.txtItemBoMon.setText("Bo Mon: " + a.getNameBM());
+                Nganh a = response.body();
+                holder.txtItemNganh.setText("Nganh: " + a.getNameBM());
             }
 
             @Override
-            public void onFailure(Call<BoMon> call, Throwable t) {
+            public void onFailure(Call<Nganh> call, Throwable t) {
 
             }
         });

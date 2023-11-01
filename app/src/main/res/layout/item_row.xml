@@ -36,8 +36,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bo mon"
-            android:id="@+id/txtItemBoMon"/>
+            android:text="Nganh"
+            android:id="@+id/txtItemNganh"/>
 
     </LinearLayout>
 
